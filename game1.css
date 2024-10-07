@@ -1,0 +1,130 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+}
+:root{
+    --bg-color: #1f242d;
+    --bg2-color: #222327;
+    --text-color: #fff;
+    --main-color: #0ef;
+    --main2-color:#ff811a;
+    --main3-color:#ff3bd1;
+}
+body{
+    background: var(--bg-color);
+    text-align: center;
+    color: var(--main-color);
+    height: 100vh;
+}
+.header{
+    /* margin-top: 10px; */
+    padding-top: 1rem;
+    height: 70px;
+    line-height: 70px;
+}
+#gameHeader{
+    font-size: 50px;
+}
+.turn{
+    font-size: 15px;
+}
+.main{
+    height: 70vmin;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.game{
+    height: 70vmin;
+    width: 70vmin;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    column-gap: 5px;
+    row-gap: 5px;
+}
+.box{
+    height: 20vmin;
+    width: 20vmin;
+    border-radius: 1rem;
+    border: none;
+    box-shadow: 0 0 1rem rgba(66, 34, 34, 0.2);
+    font-size: 11vmin;
+    color: var(--main3-color);
+    text-shadow: 0 0 2px var(--main3-color);
+    font-weight: 750;
+    background: #fff;
+}
+.btn-box{
+    display: flex;
+    justify-content: center;
+    gap: 1.6rem;
+}
+.btn{
+    padding: .5rem;
+    background-color: var(--main2-color);
+    color: #fff;
+    font-size: 1.5rem;
+    border-radius: 12px;
+    border: none;
+}
+.winner{
+    height: 63vmin;
+    width: 63vmin;
+    position: absolute;
+    text-align: center;
+    background: #fff;
+    color: var(--main3-color);
+    text-shadow: 0 0 2px var(--main3-color);
+    border-radius: 1rem;
+    line-height: 35px;
+}
+.congr{
+    position: relative;
+    vertical-align: middle;
+    flex-wrap: nowrap;
+    font-size: 25px;
+    top: 30%;
+}
+#winnerName{
+    font-size: 35px;
+}
+.hide{
+    display: none;
+}
+input[type="radio"]{
+    border: 5px #07252d solid;
+    width: 20px;
+    height: 20px;
+}
+input[type="radio"]:checked{
+    border-radius: 0px;
+    border: 2px #111 solid;
+    background-clip: content-box;
+    background-color: #111111;
+}
+.resCount{
+    display: none;
+}
+@media (max-width :768px){
+    .pcCount{
+        display: none;
+    }
+    .resCount{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        height: 70px;
+    }
+    .res{
+        width: 30%;
+        float: left;
+    }
+    .res:nth-child(2){
+        width: 40%;
+    }
+}

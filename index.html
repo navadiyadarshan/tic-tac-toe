@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Darshan Navadiya</title>
+    <link rel="stylesheet" href="./game1.css">
+</head>
+<body>
+    <div class="header">
+        <h1 id="gameHeader">Tic-Toc-Toe</h1>
+    </div>
+    <div class="turn">
+        <h2>who is first: <br>
+            <input type="radio" name="turn" class="turn" value="turnO" id="turnO" checked> O
+            <input type="radio" name="turn" class="turn" value="turnX" id="turnX"> X
+        </h2>
+    </div>
+    <div class="main">
+        <div class="winner hide">
+            <h1 class="drawHide congr">Congratulation,<br> Winner is </h1>
+            <h1 class="congr" id="winnerName"></h1>
+        </div>
+        <div class="pcCount">
+            <h2>X-Win : <h2 class="xWinCount">0</h2></h2>
+            <br><br>
+            <h2>O-Win : <h2 class="oWinCount">0</h2></h2>
+        </div>
+        <div class="game">
+            <button class="box"></button>
+            <button class="box"></button>
+            <button class="box"></button>
+            <button class="box"></button>
+            <button class="box"></button>
+            <button class="box"></button>
+            <button class="box"></button>
+            <button class="box"></button>
+            <button class="box"></button>
+        </div>
+        <div class="pcCount">
+            <h2>Draw <br>Match:<h2 class="drawMatchCount">0</h2></h2>
+        </div>
+    </div>
+    <div class="resCount">
+        <div class="res"><h3>O-Win</h3><h3 class="oWinCount">0</h3></div>
+        <div class="res"><h3>Draw Match</h3><h3 class="drawMatchCount">0</h3></div>
+        <div class="res"><h3>X-Win</h3><h3 class="xWinCount">0</h3></div>
+    </div>
+    <div class="btn-box">
+        <button class="btn" id="newGame" title="Reset your all score">New Game</button>
+        <button class="btn" id="resetGame" title="doesn't reset score">Reset Game</button>
+    </div>
+<script src="./game1.js"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-SSTV3E2PHX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag() { dataLayer.push(arguments); }
+  gtag('js', new Date());
+  gtag('config', 'G-SSTV3E2PHX');
+</script>
+</body>
+</html>
