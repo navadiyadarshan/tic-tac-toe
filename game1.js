@@ -74,21 +74,51 @@ const newGame = () =>{
     gameDraw = true;
 }
 
+const disableBoard = () => {
+    boxes.forEach(box => {
+        box.disabled = true;
+    });
+};
+
+const enableBoard = () => {
+    boxes.forEach(box => {
+        if (box.innerText === "") box.disabled = false;
+    });
+};
+
 boxes.forEach((box) => {
-    box.addEventListener("click", () => {
-    if(turnO){
-        box.innerText = "O";
-        turnO = false;
-    }else{
-        box.innerText = "X";
-        turnO = true;
-    }
-    box.disabled = true;
-    turns[1].disabled = true;
-    turns[2].disabled = true;
-    checkWinner();
+    box.addEventListener("click", async() => {
+        if(turnO){
+            box.innerText = "O";
+            turnO = false;
+        }else{
+            box.innerText = "X";
+            turnO = true;
+        }
+        box.disabled = true;
+        turns[1].disabled = true;
+        turns[2].disabled = true;
+        let winner = checkWinner();
+
+        if(!turnO && !winner){
+            disableBoard();
+            await setTimeout(botMove, (Math.floor(Math.random() *2)+0.5)*1000);
+        }
     });
 });
+
+function botMove(){
+    const emptyBoxes = Array.from(boxes).filter(box => box.innerText === "");
+    if(emptyBoxes.length === 0) return;
+
+    const randomBox = emptyBoxes[Math.floor(Math.random() * emptyBoxes.length)];
+    randomBox.innerText = 'X';
+    randomBox.disabled = true;
+    checkWinner();
+    turnO = true;
+    enableBoard();
+}
+
 let gameDraw = true;
 const showWinner =(winner) =>{
     winMess.innerText = winner;
@@ -118,6 +148,7 @@ const checkWinner = () => {
             if(pos1val == pos2val && pos2val == pos3val){
                 showWinner(pos1val);
                 disabled();
+                return 1;
             }
         }
     }
@@ -125,6 +156,7 @@ const checkWinner = () => {
         count++;
         dMatch();
     }
+    return 0;
 }
 
 let dMatch = () =>{
