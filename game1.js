@@ -153,5 +153,3 @@ let checkCount = () =>{
 
 resetBtn.addEventListener("click", resetGame);
 newBtn.addEventListener("click", newGame);
-
-//add for confilts
