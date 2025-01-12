@@ -29,15 +29,19 @@ body{
 .turn{
     font-size: 15px;
 }
+#msg{
+    padding-top: 25px;
+}
 .main{
+    margin-top: -25px;
     height: 70vmin;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 .game{
-    height: 70vmin;
-    width: 70vmin;
+    height: 65vmin;
+    width: 65vmin;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -47,8 +51,8 @@ body{
     row-gap: 5px;
 }
 .box{
-    height: 20vmin;
-    width: 20vmin;
+    height: 17vmin;
+    width: 17vmin;
     border-radius: 1rem;
     border: none;
     box-shadow: 0 0 1rem rgba(66, 34, 34, 0.2);
@@ -109,12 +113,55 @@ input[type="radio"]:checked{
 .resCount{
     display: none;
 }
+
+.player-choice.hide{
+    display: none;
+}
+
+.player-choice{
+    position: fixed;
+    left: 0;
+    top: -10%;
+    width: 100vw;
+    height: 110vh;
+    background: rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(7px);
+}
+.player-choice div{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    display: flex;
+    align-items: center;
+    gap: 2.5rem;
+    flex-direction: column;
+}
+.player-choice div button{
+    background-color: var(--main-color);
+    box-shadow: 0 0 10px var(--main-color);
+    color: var(--bg-color);
+    transition: all 1s ease;
+    font-size: 1.5rem;
+}
+
+.player-choice div button:hover{
+    box-shadow: 0 0 70px var(--main-color);
+}
+
 @media (max-width :768px){
     body{
         position: absolute;
         top: 50%;
         left: 50%;
         transform: translate(-50%,-40%);
+        width: 100%;
+        height: 83vh;
+    }
+    .player-choice{
+        top: 40%;
+        left: 50%;
+        transform: translate(-50%,-50%);
     }
     .pcCount{
         display: none;
@@ -134,13 +181,7 @@ input[type="radio"]:checked{
         width: 40%;
     }
 }
-@media (max-width :391px){
-    body{
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%,-40%);
-    }
+@media (max-width :425px){
     h1{
         font-size: 1rem;
     }

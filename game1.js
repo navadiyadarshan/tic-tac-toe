@@ -1,23 +1,29 @@
-let boxes = document.querySelectorAll(".box");
-let winMess = document.querySelector("#winnerName");
-let resetBtn = document.querySelector("#resetGame");
-let newBtn = document.querySelector("#newGame")
-let hide = document.querySelector(".winner");
-let turns = document.querySelectorAll(".turn");
-let hideCongra = document.querySelector(".drawHide");
-let xCount =document.querySelectorAll(".xWinCount");
-let oCount =document.querySelectorAll(".oWinCount");
-let drawMatchCount = document.querySelectorAll(".drawMatchCount");
+const boxes = document.querySelectorAll(".box");
+const winMess = document.querySelector("#winnerName");
+const resetBtn = document.querySelector("#resetGame");
+const newBtn = document.querySelector("#newGame")
+const hide = document.querySelector(".winner");
+const turns = document.querySelectorAll(".turn");
+const hideCongra = document.querySelector(".drawHide");
+const xCount =document.querySelectorAll(".xWinCount");
+const oCount =document.querySelectorAll(".oWinCount");
+const drawMatchCount = document.querySelectorAll(".drawMatchCount");
+const playerChoice = document.querySelector('.player-choice');
+const msg = document.querySelector('#msg');
 
 let xWinCount = 0;
 let oWinCount = 0;
 let drawCount = 0;
 
+let isSinglePlayer = true;
+
 let whoesTurn = () => {
     if(turns[1].checked == true){
         turnO = true;
+        msg.innerText = 'O Turn';
     }else if(turns[2].checked == true){
         turnO = false;
+        msg.innerText = 'X Turn';
     }
 }
 
@@ -55,6 +61,7 @@ const resetGame = () =>{
     count = 0;
     hideCongra.classList.remove("hide");
     gameDraw = true;
+    msg.innerText = `Let's Play`;
 }
 const newGame = () =>{
     for(let box of boxes){
@@ -72,6 +79,8 @@ const newGame = () =>{
     drawCount = 0;
     checkCount();
     gameDraw = true;
+    playerChoice.classList.remove('hide');
+    msg.innerText = `Let's Play`;
 }
 
 const disableBoard = () => {
@@ -91,16 +100,18 @@ boxes.forEach((box) => {
         if(turnO){
             box.innerText = "O";
             turnO = false;
+            msg.innerText = 'X Turn';
         }else{
             box.innerText = "X";
             turnO = true;
+            msg.innerText = 'O Turn';
         }
         box.disabled = true;
         turns[1].disabled = true;
         turns[2].disabled = true;
         let winner = checkWinner();
 
-        if(!turnO && !winner){
+        if(isSinglePlayer &&!turnO && !winner){
             disableBoard();
             await setTimeout(botMove, (Math.floor(Math.random() *2)+0.5)*1000);
         }
@@ -117,12 +128,14 @@ function botMove(){
     checkWinner();
     turnO = true;
     enableBoard();
+    msg.innerText = 'O Turn';
 }
 
 let gameDraw = true;
 const showWinner =(winner) =>{
     winMess.innerText = winner;
     hide.classList.remove("hide");
+    msg.innerText = `.`;
     if(winner == "X"){
         xWinCount++;
     }else if(winner == "O"){
@@ -146,6 +159,7 @@ const checkWinner = () => {
         let pos3val = boxes[pattern[2]].innerText;
         if(pos1val != "" && pos2val != "" && pos3val != ""){
             if(pos1val == pos2val && pos2val == pos3val){
+                msg.innerText = `.`;
                 showWinner(pos1val);
                 disabled();
                 return 1;
@@ -162,6 +176,7 @@ const checkWinner = () => {
 let dMatch = () =>{
     if(count == 9 && gameDraw == true){
         drawMatch();
+        msg.innerText = `.`;
     }
 }
 
@@ -182,6 +197,14 @@ let checkCount = () =>{
     })
 }
 
+document.querySelector("#multiplePlayer").addEventListener("click", () =>{
+    isSinglePlayer = false;
+    playerChoice.classList.add('hide');
+});
+document.querySelector("#singlePlayer").addEventListener("click", () =>{
+    playerChoice.classList.add('hide');
+    isSinglePlayer = true;
+});
 
 resetBtn.addEventListener("click", resetGame);
 newBtn.addEventListener("click", newGame);
