@@ -125,10 +125,10 @@ function botMove(){
     const randomBox = emptyBoxes[Math.floor(Math.random() * emptyBoxes.length)];
     randomBox.innerText = 'X';
     randomBox.disabled = true;
+    msg.innerText = 'O Turn';
     checkWinner();
     turnO = true;
     enableBoard();
-    msg.innerText = 'O Turn';
 }
 
 let gameDraw = true;
@@ -159,7 +159,6 @@ const checkWinner = () => {
         let pos3val = boxes[pattern[2]].innerText;
         if(pos1val != "" && pos2val != "" && pos3val != ""){
             if(pos1val == pos2val && pos2val == pos3val){
-                msg.innerText = `.`;
                 showWinner(pos1val);
                 disabled();
                 return 1;
