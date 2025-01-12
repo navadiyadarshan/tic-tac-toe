@@ -110,6 +110,12 @@ input[type="radio"]:checked{
     display: none;
 }
 @media (max-width :768px){
+    body{
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%,-40%);
+    }
     .pcCount{
         display: none;
     }
@@ -126,5 +132,19 @@ input[type="radio"]:checked{
     }
     .res:nth-child(2){
         width: 40%;
+    }
+}
+@media (max-width :391px){
+    body{
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%,-40%);
+    }
+    h1{
+        font-size: 1rem;
+    }
+    #gameHeader{
+        font-size: 35px;
     }
 }
