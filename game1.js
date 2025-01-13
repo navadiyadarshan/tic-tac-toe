@@ -135,7 +135,6 @@ let gameDraw = true;
 const showWinner =(winner) =>{
     winMess.innerText = winner;
     hide.classList.remove("hide");
-    msg.innerText = `.`;
     if(winner == "X"){
         xWinCount++;
     }else if(winner == "O"){
@@ -175,7 +174,6 @@ const checkWinner = () => {
 let dMatch = () =>{
     if(count == 9 && gameDraw == true){
         drawMatch();
-        msg.innerText = `.`;
     }
 }
 
@@ -185,6 +183,7 @@ const disabled = () =>{
     }
 }
 let checkCount = () =>{
+    msg.innerText = `.`;
     oCount.forEach(OC =>{
         OC.innerText = oWinCount;
     });
@@ -193,7 +192,7 @@ let checkCount = () =>{
     });
     drawMatchCount.forEach(DMC =>{
         DMC.innerText = drawCount;
-    })
+    });
 }
 
 document.querySelector("#multiplePlayer").addEventListener("click", () =>{
