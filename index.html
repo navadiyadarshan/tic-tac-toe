@@ -4,6 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Darshan Navadiya</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Delius&family=Permanent+Marker&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./game1.css">
 </head>
 <body>
@@ -17,10 +20,11 @@
         </div>
     </div>
     <div class="turn">
-        <h2>who is first: <br>
+        <h2 class="forMultiplePlayer">who is first: <br>
             <input type="radio" name="turn" class="turn" value="turnO" id="turnO" checked> O
             <input type="radio" name="turn" class="turn" value="turnX" id="turnX"> X
         </h2>
+        <h2 class="forSinglePlayer hide">You are O</h2>
     </div>
     
     <div><h2 id="msg">Let's Play</h2></div>
@@ -46,7 +50,7 @@
             <button class="box"></button>
         </div>
         <div class="pcCount">
-            <h2>Draw <br>Match:<h2 class="drawMatchCount">0</h2></h2>
+            <h2>Draw <br>Match<h2 class="drawMatchCount">0</h2></h2>
         </div>
     </div>
     <div class="resCount">

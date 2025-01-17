@@ -1,7 +1,7 @@
 *{
     margin: 0;
     padding: 0;
-    font-family: sans-serif;
+    font-family: "Delius", serif;
 }
 :root{
     --bg-color: #1f242d;
@@ -10,6 +10,7 @@
     --main-color: #0ef;
     --main2-color:#ff811a;
     --main3-color:#ff3bd1;
+    --main4-color :#0072ff;
 }
 body{
     background: var(--bg-color);
@@ -59,7 +60,8 @@ body{
     font-size: 11vmin;
     color: var(--main3-color);
     text-shadow: 0 0 2px var(--main3-color);
-    font-weight: 750;
+    font-weight: 450;
+    font-family: "Permanent Marker", serif;
     background: #fff;
 }
 .btn-box{
@@ -94,6 +96,7 @@ body{
     top: 30%;
 }
 #winnerName{
+    font-family: "Permanent Marker", serif;
     font-size: 35px;
 }
 .hide{

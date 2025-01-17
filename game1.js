@@ -10,6 +10,8 @@ const oCount =document.querySelectorAll(".oWinCount");
 const drawMatchCount = document.querySelectorAll(".drawMatchCount");
 const playerChoice = document.querySelector('.player-choice');
 const msg = document.querySelector('#msg');
+const pcCount = document.querySelectorAll(".pcCount h2");
+const resCount = document.querySelectorAll(".res h3")
 
 let xWinCount = 0;
 let oWinCount = 0;
@@ -30,8 +32,6 @@ let whoesTurn = () => {
 turns.forEach(turn =>{
     turn.addEventListener("click", () =>{
         whoesTurn();
-        turns[1].disabled = true;
-        turns[2].disabled = true;
     });
 });
 
@@ -58,29 +58,20 @@ const resetGame = () =>{
     turns[1].disabled = false;
     turns[2].disabled = false;
     whoesTurn();
+    if(isSinglePlayer) turnO = true;
     count = 0;
     hideCongra.classList.remove("hide");
     gameDraw = true;
     msg.innerText = `Let's Play`;
+    if(isSinglePlayer) msg.innerText+= `\nYou are first`
 }
 const newGame = () =>{
-    for(let box of boxes){
-        box.disabled = false;
-        box.innerText = "";
-    };
-    hide.classList.add("hide");
-    turns[1].disabled = false;
-    turns[2].disabled = false;
-    whoesTurn();
-    count = 0;
-    hideCongra.classList.remove("hide");
+    resetGame();
     xWinCount = 0;
     oWinCount = 0;
     drawCount = 0;
     checkCount();
-    gameDraw = true;
     playerChoice.classList.remove('hide');
-    msg.innerText = `Let's Play`;
 }
 
 const disableBoard = () => {
@@ -97,12 +88,18 @@ const enableBoard = () => {
 
 boxes.forEach((box) => {
     box.addEventListener("click", async() => {
+        turns[1].disabled = true;
+        turns[2].disabled = true;
         if(turnO){
             box.innerText = "O";
+            box.style.color = "var(--main4-color)";
+            box.style.textShadow = "0 0 2px var(--main4-color)";
             turnO = false;
             msg.innerText = 'X Turn';
         }else{
             box.innerText = "X";
+            box.style.color = "var(--main3-color)";
+            box.style.textShadow = "0 0 2px var(--main3-color)";
             turnO = true;
             msg.innerText = 'O Turn';
         }
@@ -124,6 +121,8 @@ function botMove(){
 
     const randomBox = emptyBoxes[Math.floor(Math.random() * emptyBoxes.length)];
     randomBox.innerText = 'X';
+    randomBox.style.color = "var(--main3-color)";
+    randomBox.style.textShadow = "0 0 2px var(--main3-color)";
     randomBox.disabled = true;
     msg.innerText = 'O Turn';
     checkWinner();
@@ -196,12 +195,28 @@ let checkCount = () =>{
 }
 
 document.querySelector("#multiplePlayer").addEventListener("click", () =>{
+    pcCount[0].innerText = `X-Win`;
+    pcCount[2].innerText = `O-win`;
+    resCount[0].innerText = `X-Win`;
+    resCount[4].innerText = `O-win`;
     isSinglePlayer = false;
     playerChoice.classList.add('hide');
+    document.querySelector('.forMultiplePlayer').classList.remove("hide");
+    document.querySelector('.forSinglePlayer').classList.add("hide");
+    whoesTurn();
+    resetGame();
 });
 document.querySelector("#singlePlayer").addEventListener("click", () =>{
+    pcCount[0].innerText = `Comp`;
+    pcCount[2].innerText = `You`;
+    resCount[0].innerText = `Comp`;
+    resCount[4].innerText = `You`;
     playerChoice.classList.add('hide');
+    document.querySelector('.forMultiplePlayer').classList.add("hide");
+    document.querySelector('.forSinglePlayer').classList.remove("hide");
     isSinglePlayer = true;
+    resetGame();
+    turnO = true;
 });
 
 resetBtn.addEventListener("click", resetGame);
