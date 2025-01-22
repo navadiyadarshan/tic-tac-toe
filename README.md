@@ -10,10 +10,11 @@
         <ol type="1">
             <li>HTML Structure:</li>
             <ul type="circle">
-Created the basic structure using HTML5 for the game interface, including a Tic Tac Toe board and player information.
-Added options for selecting the game mode: single-player or two-player.
-Incorporated sections for displaying the current player's turn, game status (win, loss, or draw), and buttons to restart the game.
-Set up the grid using div elements, which are clickable for user interactions.
+                <li>Created the basic structure using HTML5 for the game interface, including a Tic Tac Toe board and player information.</li>
+                <li>Added options for selecting the game mode: single-player or two-player.</li>
+                <li>Incorporated sections for displaying the current player's turn, game status (win, loss, or draw), and buttons to restart the game.</li>
+                <li>Set up the grid using div elements, which are clickable for user interactions.</li>
+            </ul>
             <li>CSS Styling:</li>
             <ul type="circle">
                 <li>Styled the game interface using CSS, ensuring it’s visually appealing and user-friendly.</li>
@@ -58,29 +59,29 @@ Set up the grid using div elements, which are clickable for user interactions.
             <ul type="circle">
                 <li>Improved structuring of interactive web interfaces, managing layout and game controls.</li>
                 <li>Gained experience implementing forms for user selection (game mode, restart functionality).</li>
-            <ul>
+            </ul>
             <li>CSS:</li>
             <ul type="circle">
                 <li>Enhanced skills in designing user-friendly and visually appealing interfaces with responsive layouts.</li>
                 <li>Created dynamic, interactive visuals using hover effects and transitions for grid cells.</li>
-            <ul>
+            </ul>
             <li>JavaScript:</li>
             <ul type="circle">
                 <li>Implemented game logic to handle both two-player and single-player modes.</li>
                 <li>Developed simple AI for the computer opponent in single-player mode using random number generation and move validation.</li>
                 <li>Improved understanding of event-driven programming, dynamically updating the DOM based on user actions.</li>
                 <li>Implemented functions to check for game outcomes (win, draw, or ongoing) after every move.</li>
-            <ul>
+            </ul>
             <li>Game Development Basics:</li>
             <ul type="circle">
                 <li>Gained knowledge of building turn-based games with multiple player modes.</li>
                 <li>Implemented logic to check for winning conditions and validate player moves in real-time.</li>
-            <ul>
+            </ul>
             <li>Problem Solving:</li>
             <ul type="circle">
                 <li>Solved the challenge of alternating turns and checking for the end of the game (win or draw).</li>
                 <li>Created a basic, random move algorithm for the computer to simulate an opponent in single-player mode.</li>
-            <ul>
+            </ul>
             <li>Project Organization:</li>
             <ul type="circle">
                 <li>Organized the project files (HTML, CSS, JavaScript) for easy readability and maintainability.</li>
